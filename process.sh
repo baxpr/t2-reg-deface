@@ -8,5 +8,8 @@
 t1=INPUTS/t1.nii.gz
 t2=INPUTS/t2.nii.gz
 face=INPUTS/face.nii.gz
+out_dir=OUTPUTS
 
-flirt
+echo "Registering T2 to T1"
+flirt -in "${t2}" -ref "${t1}" -out "${out_dir}"/t2_to_t1 -usesqform -noresample
+    
